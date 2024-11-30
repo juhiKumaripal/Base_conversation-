@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRIJESH CONVERTION</title>
+    <style>
+        .c1{
+            width: 70%;
+            height: 60vh;
+            border: 6px ridge darkgreen;
+            border-radius: 40px;
+            margin: 10%;
+            background-color: rgb(40, 154, 6);
+        }
+        .c2{
+            background-image: url(mm3.jpeg);
+        }
+    </style>
+</head>
+<body>
+    <div class="c1"><center>
+    <H1>BRIJESH CONVERTION</H1>
+    <label>Number:</label>
+    <input id="d1" type="text"><br><br>
+    <label>FROM:</label>
+    <select id="finp">
+        <option value="b">Binary number:</option>
+        <option value="o">octal number:</option>
+        <option value="h">hexa-decimal number:</option>
+        <option value="d">Decimal number:</option>
+    </select><br><br>
+     <div class="c2">
+    <label>To:</label>
+    <select id="tinp">
+        <option value="b">Binary number:</option>
+        <option value="o">octal number:</option>
+        <option value="h">hexa-decimal number:</option>
+        <option value="d">Decimal number:</option>
+    </select>
+     </div><br><br>
+    <button type="button" onclick="convert()">convert</button>
+    <br><br>
+    <br><br>
+    <label>Result</label>
+    <input type="text" id="res">
+    <script>
+        function convert() {
+    let num = document.getElementById("d1").value.trim();
+    let f_choose_value = document.getElementById("finp").value;
+    let t_choose_value = document.getElementById("tinp").value;
+    let dec_num;
+    let result = "";
+
+    if (f_choose_value === "b") {
+        dec_num = parseInt(num, 2);
+    } else if (f_choose_value === "o") {
+        dec_num = parseInt(num, 8);
+    } else if (f_choose_value === "h") {
+        dec_num = parseInt(num, 16);
+    } else if (f_choose_value === "d") {
+        dec_num = parseInt(num, 10);
+    }
+
+    if (t_choose_value === "b") {
+        result = dec_num.toString(2);  
+    } else if (t_choose_value === "o") {
+        result = dec_num.toString(8);  
+    } else if (t_choose_value === "h") {
+        result = dec_num.toString(16).toUpperCase();  
+    } else if (t_choose_value === "d")
+    {
+        result = dec_num.toString(10);  
+    }
+
+    document.getElementById("res").value=result;
+}
+    </script>
+</body>
+</html>
